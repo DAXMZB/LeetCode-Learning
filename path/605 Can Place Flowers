@@ -1,0 +1,35 @@
+// ok  I understatnd that here's a flowerbd array and we need to planted flower with integer n ,if array folower of i is zero and need to follow without the no-adjacent rule
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int length = flowerbed.length;
+        // First we need to travel the flowerbed array and use for loop
+        for(int i = 0; i < length; i ++) {
+            // I start the loop from index 0 to account for all planting opportunities, 
+                //  including the boundaries, ensuring the code  regardless of the 
+                //  initial setup."
+            if (flowerbed[i] == 0) {
+            // iterate through the flowerbed and check for empty plots that satisfy the 
+            //      no-adjacent-flowers rule    
+
+                
+                boolean leftEmpty = (i == 0 || flowerbed[i - 1] == 0);
+                boolean rightEmpty = (i == length - 1 || flowerbed[i + 1] == 0);
+                
+                // and if leftEmpty and rightEmpty is true that means the plot is 0 and can 
+                // planted
+                if (leftEmpty && rightEmpty) {
+                    // so type 
+                    flowerbed[i] = 1;
+                    // n minus 1
+                    n --;
+                }
+            }
+        }       
+
+        // I return n <= 0 as a defensive programming practice, ensuring that once the 
+        //      requirement is met or exceeded, the function consistently returns true.
+        return n <= 0;
+
+
+    }
+}
