@@ -39,7 +39,18 @@ class Solution:
     # Time Complexity O(N)
     #              Because we just iterate once through the loop 2 to N
 
-    # Space Complexity O(N)
+    # Space Complexity O(N), Because we use space due to dictionaries
 
+        MOD = 10 ** 9 + 7
+        FF,F, T, B = 1, 1, 0, 0
+        for i in range (2, n + 1):
+            FF, F, T, B = F, F + FF + T + B, B + FF, T + FF
+            
+        return F % MOD
+
+# Time Complexity O(N)
+#              Because we just iterate once through the loop 2 to N
+
+# Space Complexity O(1) Because we only maintain 4 constants
         
 
